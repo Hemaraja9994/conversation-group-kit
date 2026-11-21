@@ -1,0 +1,11 @@
+{
+  "name": "Conversation Group Kit",
+  "short_name": "Group Kit",
+  "description": "Session plans and register for volunteer-led conversation groups for people with aphasia or hearing loss.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F7F9FB",
+  "theme_color": "#17212E",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
