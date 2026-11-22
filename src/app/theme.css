@@ -1,0 +1,38 @@
+.theme-src{}
+/* ===== conversation-group-kit theme ===== */
+:root{
+  --color-paper: #FAF6EC;
+  --color-surface: #FFFDF6;
+  --color-ink: #3A3317;
+  --color-muted: #645C3E;
+  --color-line: #E4DCC4;
+  --color-track: #EFE8D2;
+  --color-accent: #8A6D1A;
+  --color-grid: #EFE8D2;
+  --font-sans: "Figtree","Atkinson Hyperlegible",system-ui,sans-serif;
+  --font-display: "Outfit","Atkinson Hyperlegible",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+  --color-paper: #15130A;
+  --color-surface: #1F1C10;
+  --color-ink: #F0ECDC;
+  --color-accent: #D8B23E;
+  --color-grid: #241F12;
+  --color-muted: #A3B1C2;
+  --color-line: #2B3A4B;
+  --color-track: #22303F;
+  }
+}
+body{
+  background-image:
+    linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+h1,h2,h3,h4{ font-family: var(--font-display); }
+header.bg-ink{
+  background-image: radial-gradient(circle at 3px 3px, rgba(255,255,255,.07) 1.4px, transparent 0);
+  background-size: 24px 24px;
+}
+
