@@ -1,0 +1,18 @@
+/* Eight ready-to-run session plans for a volunteer-led conversation group. Content preserved. */
+export interface SessionPlan { t: string; warm: string; main: string; bring: string; tip: string }
+
+export const SESSIONS: SessionPlan[] = [
+  { t: "Hello, and where I come from", warm: "Name cards in large letters. Each person shows where they grew up on a printed map of India or the state.", main: "Hometowns: what was the house like, what grew nearby, what was the local festival? Use photos members bring.", bring: "Name cards, thick markers, a large printed map, sticky dots.", tip: "Accept any way of answering: pointing, a word, a gesture. Write each answer on the chart for all to see." },
+  { t: "Food we love", warm: "Pass around real spices (cardamom, cloves, jeera) to smell and name.", main: "Favourite dishes, who cooked them, how festival food differs from daily food. Make a group menu on the board.", bring: "Small spice jars, picture cards of common dishes, chart paper.", tip: "Offer choices: “Sweet or spicy?” “Idli or dosa?”" },
+  { t: "Songs and films we remember", warm: "Play a short clip of an old film song everyone knows (from a legal source), then pause.", main: "Which film, which actor, where were you when you first heard it? Humming and singing together is welcome: singing can be easier than speaking for some people with aphasia.", bring: "Phone and speaker, printed photos of old film posters or actors.", tip: "Keep the volume moderate and one sound at a time for members with hearing loss." },
+  { t: "School days", warm: "Show an old slate, a fountain pen or a school bag. What is it? Who used one?", main: "Teachers we remember, games at break time, the walk to school. Compare then and now.", bring: "Old school objects, a picture of a classroom.", tip: "Volunteers who were teachers: resist the urge to teach. Ask and listen." },
+  { t: "Markets and money", warm: "Show prices from long ago (write them up): what did a cinema ticket or a cup of tea cost?", main: "Shopping then and now, bargaining stories, favourite shops. Role-play buying vegetables with picture cards and play money.", bring: "Picture cards of vegetables and fruit, play notes and coins.", tip: "Role play gives a safe way to practise everyday talk." },
+  { t: "Journeys and pilgrimages", warm: "Photos of famous temples, churches, mosques, hills or beaches. Who has been there?", main: "A memorable journey: who went, how you travelled, what happened on the way.", bring: "Printed travel photos, a simple map.", tip: "Draw a quick timeline on the board as the story unfolds." },
+  { t: "Games and cricket", warm: "Show a cricket ball, carrom striker or chess piece.", main: "Games we played, famous matches we watched or heard on the radio, who we supported.", bring: "Sports objects, photos of famous players, a simple scoreboard drawing.", tip: "Strong opinions are good: let disagreements happen kindly." },
+  { t: "Celebrations, and what comes next", warm: "Each member picks a picture card for a celebration they enjoy.", main: "Weddings, naming ceremonies, festivals at home. Then look back at the eight weeks and plan the next season of topics together.", bring: "Celebration picture cards, the charts from earlier sessions.", tip: "Ask members what they want next time. The group belongs to them." }
+];
+
+export interface Member { id: string; code: string; need: string }
+export interface GroupData { members: Member[]; att: Record<string, boolean> }   // att key: "memberId|sessionIndex"
+export const attKey = (memberId: string, session: number): string => `${memberId}|${session}`;
+export const attendedCount = (data: GroupData, memberId: string): number => SESSIONS.filter((_, i) => data.att[attKey(memberId, i)]).length;

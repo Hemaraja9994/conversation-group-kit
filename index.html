@@ -2,117 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Conversation Group Kit</title>
-<meta name="description" content="Eight ready session plans, facilitation tips and an attendance register for volunteer-led conversation groups for people with aphasia or hearing loss.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>%APP_NAME%</title>
+<meta name="description" content="%APP_DESC%">
 <meta name="theme-color" content="#17212E">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="kit.css">
-<style>
-.sessions{display:grid;gap:8px}
-.sessions button{text-align:left;border-color:var(--line);background:var(--paper);display:grid;grid-template-columns:2rem 1fr;gap:8px;align-items:center}
-.sessions button[aria-current="true"]{box-shadow:inset 0 0 0 2px var(--ink);background:var(--surface)}
-.sessions .n{width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem}
-.plan h4{margin:16px 0 4px}
-.plan p,.plan li{max-width:70ch}
-.reg td,.reg th{text-align:center}
-.reg td:first-child,.reg th:first-child{text-align:left}
-.reg input[type=checkbox]{width:18px;height:18px}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Noto+Sans+Devanagari:wght@400;600&family=Noto+Sans+Kannada:wght@400;600&family=Noto+Sans+Telugu:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="top"><div class="wrap">
-  <div class="brand"><img src="icon.svg" width="34" height="34" alt=""><h1><span data-i18n="appName"></span><small data-i18n="appSub"></small></h1></div>
-  <div class="top-tools"><span class="net" id="net" role="status" aria-live="polite"></span><label class="sr" for="lang">Language</label><select id="lang" class="lang"></select></div>
-</div></header>
-
-<main class="wrap">
-  <section class="intro">
-    <h2>A weekly circle where everyone gets a turn to talk</h2>
-    <p>For retired teachers and other volunteers running a conversation group for people living with aphasia after stroke, or with hearing loss. Eight sessions, each with a warm-up, a main topic and things to bring. The aim is conversation and company, not therapy.</p>
-  </section>
-
-  <div class="side">
-    <aside class="panel"><h3>Sessions</h3><div class="sessions" id="list"></div></aside>
-    <section class="panel plan" id="plan"></section>
-  </div>
-
-  <div class="grid2">
-    <section class="panel">
-      <h3>Facilitator tips</h3>
-      <ul>
-        <li>Keep the group small: 4 to 8 members, in a circle, in a quiet room with good light.</li>
-        <li>Write the topic and key words in large letters on a board or chart paper.</li>
-        <li>Give everyone a turn, and wait. Silence is thinking time.</li>
-        <li>Offer choices, yes-or-no questions, pictures, gestures and writing as ways to answer.</li>
-        <li>Never speak for someone or finish their sentence unless they ask. Treat every member as the capable adult they are.</li>
-        <li>For members with hearing loss: one person speaks at a time, face the group, and repeat questions from others.</li>
-        <li>Note anyone who seems unwell, low in mood or newly struggling, and tell the coordinating therapist.</li>
-      </ul>
-      <p class="muted small-text">Based on the principles of Supported Conversation for Adults with Aphasia (Kagan et al., 2001) and community aphasia group practice.</p>
-    </section>
-    <section class="panel">
-      <div class="head-row"><h3>Members</h3></div>
-      <div class="row2"><label class="field" for="mCode">Member code<input type="text" id="mCode" maxlength="20" autocomplete="off"></label>
-        <label class="field" for="mNeed">Main need<select id="mNeed"><option>Aphasia</option><option>Hearing loss</option><option>Both</option><option>Other</option></select></label></div>
-      <div class="actions"><button type="button" class="primary" id="mAdd">Add member</button></div>
-      <p class="muted small-text">Use codes or first initials. Keep contact details in your group's own register.</p>
-    </section>
-  </div>
-
-  <section class="panel" style="margin-bottom:10px">
-    <div class="head-row"><h3>Attendance register</h3><div class="actions" style="margin-top:0"><button type="button" class="small" id="csv">Download CSV</button><button type="button" class="small" id="printReg">Print register</button></div></div>
-    <div class="table-scroll" id="reg"></div>
-  </section>
-  <section id="printArea" aria-hidden="true"></section>
-</main>
-
-<footer><div class="wrap">
-  <p data-i18n="disclaimer"></p>
-  <p>Data stays in this browser only.</p>
-  <p id="credit"></p>
-</div></footer>
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<script src="kit.js"></script>
-<script>
-const I18N_APP = { en:{ appName:"Conversation Group Kit", appSub:"Volunteer-led groups for aphasia and hearing loss", disclaimer:"For volunteer groups supported by a speech-language pathologist or audiologist. It is not a therapy programme." } };
-const SESSIONS = [
-  {t:"Hello, and where I come from", warm:"Name cards in large letters. Each person shows where they grew up on a printed map of India or the state.", main:"Hometowns: what was the house like, what grew nearby, what was the local festival? Use photos members bring.", bring:"Name cards, thick markers, a large printed map, sticky dots.", tip:"Accept any way of answering: pointing, a word, a gesture. Write each answer on the chart for all to see."},
-  {t:"Food we love", warm:"Pass around real spices (cardamom, cloves, jeera) to smell and name.", main:"Favourite dishes, who cooked them, how festival food differs from daily food. Make a group menu on the board.", bring:"Small spice jars, picture cards of common dishes, chart paper.", tip:"Offer choices: “Sweet or spicy?” “Idli or dosa?”"},
-  {t:"Songs and films we remember", warm:"Play a short clip of an old film song everyone knows (from a legal source), then pause.", main:"Which film, which actor, where were you when you first heard it? Humming and singing together is welcome: singing can be easier than speaking for some people with aphasia.", bring:"Phone and speaker, printed photos of old film posters or actors.", tip:"Keep the volume moderate and one sound at a time for members with hearing loss."},
-  {t:"School days", warm:"Show an old slate, a fountain pen or a school bag. What is it? Who used one?", main:"Teachers we remember, games at break time, the walk to school. Compare then and now.", bring:"Old school objects, a picture of a classroom.", tip:"Volunteers who were teachers: resist the urge to teach. Ask and listen."},
-  {t:"Markets and money", warm:"Show prices from long ago (write them up): what did a cinema ticket or a cup of tea cost?", main:"Shopping then and now, bargaining stories, favourite shops. Role-play buying vegetables with picture cards and play money.", bring:"Picture cards of vegetables and fruit, play notes and coins.", tip:"Role play gives a safe way to practise everyday talk."},
-  {t:"Journeys and pilgrimages", warm:"Photos of famous temples, churches, mosques, hills or beaches. Who has been there?", main:"A memorable journey: who went, how you travelled, what happened on the way.", bring:"Printed travel photos, a simple map.", tip:"Draw a quick timeline on the board as the story unfolds."},
-  {t:"Games and cricket", warm:"Show a cricket ball, carrom striker or chess piece.", main:"Games we played, famous matches we watched or heard on the radio, who we supported.", bring:"Sports objects, photos of famous players, a simple scoreboard drawing.", tip:"Strong opinions are good: let disagreements happen kindly."},
-  {t:"Celebrations, and what comes next", warm:"Each member picks a picture card for a celebration they enjoy.", main:"Weddings, naming ceremonies, festivals at home. Then look back at the eight weeks and plan the next season of topics together.", bring:"Celebration picture cards, the charts from earlier sessions.", tip:"Ask members what they want next time. The group belongs to them."}
-];
-const KEY = "cgk-data";
-let db = store.get(KEY, {members:[], att:{}});   // att: { "memberId|session": true }
-let cur = 0;
-const save = () => store.set(KEY, db);
-function render(){
-  $("#list").innerHTML = SESSIONS.map((s,i) => `<button type="button" data-s="${i}" aria-current="${i===cur}"><span class="n">${i+1}</span><span>${esc(s.t)}</span></button>`).join("");
-  const s = SESSIONS[cur];
-  $("#plan").innerHTML = `<div class="head-row"><h3>Session ${cur+1}: ${esc(s.t)}</h3><button type="button" class="small" id="printPlan">Print plan</button></div>
-    <p class="muted small-text">About 60 minutes: 10 welcome and warm-up, 35 main topic, 10 wrap-up and tea, 5 notes.</p>
-    <h4>Warm-up</h4><p>${esc(s.warm)}</p><h4>Main conversation</h4><p>${esc(s.main)}</p><h4>Bring</h4><p>${esc(s.bring)}</p>
-    <div class="callout"><h4>Tip for this session</h4><p style="margin:0">${esc(s.tip)}</p></div>`;
-  $("#reg").innerHTML = db.members.length ? `<table class="rec reg"><thead><tr><th>Member</th>${SESSIONS.map((_,i)=>`<th title="${esc(SESSIONS[i].t)}">${i+1}</th>`).join("")}<th>Total</th><th></th></tr></thead><tbody>${db.members.map(m => { const tot = SESSIONS.filter((_,i) => db.att[m.id+"|"+i]).length;
-    return `<tr><td><b>${esc(m.code)}</b> <span class="muted small-text">${esc(m.need)}</span></td>${SESSIONS.map((_,i)=>`<td><input type="checkbox" data-att="${m.id}|${i}" ${db.att[m.id+"|"+i]?"checked":""} aria-label="${esc(m.code)} session ${i+1}"></td>`).join("")}<td class="num">${tot}</td><td><button type="button" class="small danger" data-mdel="${m.id}">Remove</button></td></tr>`; }).join("")}</tbody></table>` : `<p class="muted">Add members to start the register.</p>`;
-}
-$("#list").addEventListener("click", e => { const b = e.target.closest("[data-s]"); if (!b) return; cur = Number(b.dataset.s); render(); });
-$("#plan").addEventListener("click", e => { if (e.target.id !== "printPlan") return; const s = SESSIONS[cur];
-  printArea(`<h2>Session ${cur+1}: ${esc(s.t)}</h2><h3>Warm-up (10 minutes)</h3><p>${esc(s.warm)}</p><h3>Main conversation (35 minutes)</h3><p>${esc(s.main)}</p><h3>Bring</h3><p>${esc(s.bring)}</p><h3>Tip</h3><p>${esc(s.tip)}</p><h3>Notes</h3><div style="height:140pt;border:1px solid #777"></div>`); });
-$("#mAdd").addEventListener("click", () => { const c = $("#mCode").value.trim(); if (!c){ toast("Enter a member code."); return; } db.members.push({id:uid(), code:c, need:$("#mNeed").value}); save(); $("#mCode").value = ""; render(); toast("Member added"); });
-$("#reg").addEventListener("change", e => { const k = e.target.dataset.att; if (!k) return; if (e.target.checked) db.att[k] = true; else delete db.att[k]; save(); render(); });
-$("#reg").addEventListener("click", e => { if (!e.target.dataset.mdel || !confirm("Remove this member and their attendance?")) return; db.members = db.members.filter(m => m.id !== e.target.dataset.mdel); save(); render(); });
-$("#csv").addEventListener("click", () => downloadCSV([["member","need",...SESSIONS.map((s,i)=>`S${i+1} ${s.t}`),"total"], ...db.members.map(m => [m.code, m.need, ...SESSIONS.map((_,i)=>db.att[m.id+"|"+i]?"present":""), SESSIONS.filter((_,i)=>db.att[m.id+"|"+i]).length])], `conversation-group-register-${todayISO()}.csv`));
-$("#printReg").addEventListener("click", () => printArea(`<h2>Conversation group register</h2><table><tr><th>Member</th>${SESSIONS.map((_,i)=>`<th>${i+1}</th>`).join("")}</tr>${db.members.map(m => `<tr><td>${esc(m.code)}</td>${SESSIONS.map((_,i)=>`<td>${db.att[m.id+"|"+i]?"✓":""}</td>`).join("")}</tr>`).join("")}</table>`));
-KIT.start({ i18n: I18N_APP, render, version: "0.1.0" });
-</script>
+<div id="root"></div>
+<noscript>This app needs JavaScript turned on.</noscript>
+<script type="module" src="/src/main.tsx"></script>
 </body>
 </html>

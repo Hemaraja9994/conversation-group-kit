@@ -1,0 +1,14 @@
+[
+  { "id": "group-aphasia", "title": "Group conversation treatment for aphasia", "tags": ["group", "aphasia", "conversation", "participation", "social", "evidence"],
+    "text": "Group conversation treatment improves communication and wellbeing for people with chronic aphasia and reduces isolation. Structured, topic-based groups give repeated, meaningful practice that one-to-one sessions alone do not, and can be run by trained volunteers with professional support.",
+    "source": "Elman RJ, Bernstein-Ellis E. The efficacy of group communication treatment in adults with chronic aphasia. J Speech Lang Hear Res 42(2):411–419", "year": 1999, "url": "https://pubmed.ncbi.nlm.nih.gov/10229457/", "checked": "Nov 2026" },
+  { "id": "life-participation", "title": "Life participation approach", "tags": ["participation", "lpaa", "goals", "everyday", "quality of life", "aphasia"],
+    "text": "The Life Participation Approach to Aphasia judges success by re-engagement in chosen life activities and conversation, not test scores alone. Reminiscence and everyday topics — food, songs, journeys, festivals — give people something real to talk about and belong to.",
+    "source": "Chapey R, et al. Life participation approach to aphasia. ASHA Leader", "year": 2000, "url": "https://www.asha.org/public/speech/disorders/aphasia/", "checked": "Nov 2026" },
+  { "id": "reminiscence", "title": "Reminiscence and singing", "tags": ["reminiscence", "singing", "music", "memory", "aphasia", "engagement"],
+    "text": "Familiar songs and reminiscence draw on well-preserved memory and melody. Many people with non-fluent aphasia can sing words they cannot speak, so singing together lowers the barrier to joining in and lifts mood.",
+    "source": "Tamplin J, Baker FA. Music engagement and wellbeing in neurorehabilitation.", "year": 2017, "checked": "Nov 2026" },
+  { "id": "hearing-groups", "title": "Running a group for members with hearing loss", "tags": ["hearing loss", "group", "noise", "turn-taking", "one at a time", "access"],
+    "text": "In a group, members with hearing loss do best when only one person speaks at a time, the room is quiet, faces are visible and the topic is named. Keep background music low and pause often to check everyone is following.",
+    "source": "Ida Institute — group communication and person-centred care", "year": 2021, "url": "https://idainstitute.com/", "checked": "Nov 2026" }
+]
